@@ -1,0 +1,11 @@
+<script>
+  const arr = [3, 4, 5, 10, 19, 21, 30];
+  const findSecondLargetNum = (arr) => {
+    const firstLargestEle = Math.max(...arr);
+    const index = arr.indexOf(firstLargestEle);
+    arr.splice(index, 1);
+    const secondLar = Math.max(...arr);
+    return secondLar;
+  };
+  console.log(findSecondLargetNum(arr));
+</script>

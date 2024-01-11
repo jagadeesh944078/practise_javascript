@@ -1,0 +1,12 @@
+<script>
+  const arr = [3, 4, 10, 78, 208]; // find max and min value
+  const maxNum = (arr) => {
+    return arr.reduce((prev, curr) => (prev > curr ? prev : curr));
+  };
+  const minNum = (arr) => {
+    return arr.reduce((prev, curr) => (prev < curr ? prev : curr));
+  };
+
+  console.log(maxNum(arr), "MaxNumber");
+  console.log(minNum(arr), "MinNumber");
+</script>
