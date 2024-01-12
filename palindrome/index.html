@@ -1,0 +1,13 @@
+<script>
+  /* check entered word is palindrome or not */
+  const str = prompt("enter the value");
+  const checkPalindrome = (str) => {
+    const reverseWord = str.split("").reverse().join("");
+    if (str === reverseWord) {
+      return "paindrome";
+    } else {
+      return "not palindrome";
+    }
+  };
+  console.log(checkPalindrome(str));
+</script>

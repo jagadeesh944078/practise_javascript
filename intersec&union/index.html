@@ -1,0 +1,21 @@
+<script>
+  const arr1 = [1, 2, 4, 6, 6];
+  const arr2 = [2, 5, 6, 9];
+  const interSection = arr1.filter((ele) => arr2.includes(ele));
+  console.log([...new Set(interSection)]);
+  const arr3 = [1, 2, 4, 6, 6];
+  const arr4 = [2, 5, 6, 9];
+  const union = [...arr3, ...arr4];
+  console.log([...new Set(union)]);
+
+  /* fibnocci series */
+  var a = 0;
+  var b = 1;
+  var temp;
+  for (let i = 0; i < 15; i++) {
+    temp = a + b;
+    a = b;
+    b = temp;
+    console.log(temp);
+  }
+</script>

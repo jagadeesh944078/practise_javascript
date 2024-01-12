@@ -1,0 +1,13 @@
+<script>
+  /* swap num using third varibale */
+  let a = 10;
+  let b = 5;
+  /* using third variable */
+  let temp = a;
+  a = b;
+  b = temp;
+  console.log(`value of a is ${a} and value of b is ${b}`);
+  /* without using third  variable*/
+  [b, a] = [a, b];
+  console.log(`value of a is ${a} and value of b is ${b}`);
+</script>

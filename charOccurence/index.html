@@ -1,0 +1,20 @@
+<script>
+  const str = prompt("enter the string value");
+  const letter = prompt("enter the letter");
+  // var count = 0;
+  // for(let i=0; i<str.length; i++){
+  //     if(str[i] === letter) {
+  //         count++;
+  //     }
+  // }
+  const count = str.split("").filter((ele) => ele === letter).length;
+
+  console.log(`in ${str} occurence of ${letter} is d: ${count}`);
+
+  /* print the table */
+  const num = prompt("enter which table you want");
+  for (let i = 1; i <= 10; i++) {
+    var res = num * i;
+    console.log(`${num} * ${i} = ${res}`);
+  }
+</script>

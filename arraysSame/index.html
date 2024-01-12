@@ -1,0 +1,12 @@
+<script>
+  const arr1 = [1, 4, 5, 6, 9];
+  const arr2 = [5, 6, 7, 10, 5];
+  const isArraySame =
+    arr1.length === arr2.length &&
+    arr1.every((ele) => {
+      if (arr2.indexOf(ele) > -1) {
+        return true;
+      }
+    });
+  console.log(isArraySame);
+</script>

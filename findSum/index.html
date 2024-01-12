@@ -1,0 +1,18 @@
+<script>
+  /* find the sum of all elements */
+  const arr = [2, 3, 10, 56, 4];
+  const findSum = (arr) => {
+    return arr.reduce((prev, curr) => prev + curr);
+  };
+  console.log(findSum(arr), "summ");
+
+  /* without using built in methods */
+  const findSumNum = (arr) => {
+    let totalSum = 0;
+    for (let i = 0; i < arr.length; i++) {
+      totalSum = totalSum + arr[i];
+    }
+    return totalSum;
+  };
+  console.log(findSumNum(arr), "findTotalSum");
+</script>

@@ -1,0 +1,13 @@
+<script>
+  /* finding missing number */
+  const arr = [1, 2, 3, 4, 5, 6, 7, 10];
+  const missArray = [];
+  const maxNum = Math.max(...arr);
+  const minNum = Math.min(...arr);
+  for (let i = minNum; i < maxNum; i++) {
+    if (arr.indexOf(i) < 0) {
+      missArray.push(i);
+    }
+  }
+  console.log(missArray, "s");
+</script>

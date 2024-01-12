@@ -1,0 +1,13 @@
+<script>
+  /* check the factorial of the entered num */
+  const input = prompt("enter input number:");
+  let fact = 1;
+  if (input < 0) {
+    console.log(`entered number ${input} not possible for factorial `);
+  } else {
+    for (let i = 1; i <= input; i++) {
+      fact = fact * i;
+    }
+    console.log(`factorial of the ${input} is ${fact}`);
+  }
+</script>
