@@ -1,0 +1,11 @@
+<script>
+  const abc = {
+    xyz: { empId: 1223, empName: "zagadeesh" },
+    abc: { empId: 1223, empName: "rajendhar" },
+  };
+  const keysArray = Object.keys(abc);
+  keysArray.sort((a, b) => abc[a].empName.localeComapre(abc[b].empName));
+  const sortedObject = {};
+  keysArray.forEach((key) => (sortedObject[key] = abc[key]));
+  console.log(sortedObject);
+</script>
