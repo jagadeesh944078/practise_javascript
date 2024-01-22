@@ -1,0 +1,12 @@
+- canvas element will be used in html5
+- this is the element which is used to draw the graphics on the webpage with the help of javascript
+- canvas ele is the only container which is used for graphics
+- you must use the script to actually draw the graphics
+- there diffrent methods in canvas using that you can in canvas element for drawing boxes circles, text, even images also
+- canvas element can draw colortext with or without an animation
+- ex <canvas id="mycanvas" width:"200" height:"200"></canvas>
+- here in above example you can id attribute to access canvas in javascript and here width and height attributes are used to define the size of the canvas
+- and you can write multiple canvas in one html file and bydefault it has no border and no content
+- so with the help javascript only you can draw the graphics inside the canvas
+- canvas.getcontext used to draw the 2d or 3d type graphics and this getcontext avaiable canvas html object
+- there are many method in canvas like fillText(), font, storkeText()

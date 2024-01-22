@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Canvas learning</h1>
+    <canvas
+      id="mycanvas"
+      width="200"
+      height="100"
+      style="border: 1px solid"
+    ></canvas>
+    <script>
+      var canvas = document.getElementById("mycanvas");
+      var ctx = canvas.getContext("2d");
+      //To write the Text
+      //ctx.fillText("hello world", 20, 20);
+      //To draw the line
+      ctx.moveTo(0, 0);
+      ctx.lineTo(200, 100);
+      ctx.stroke();
+    </script>
+  </body>
+</html>
