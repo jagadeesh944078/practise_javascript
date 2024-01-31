@@ -1,11 +1,11 @@
 <script>
   const arr1 = [1, 2, 4, 6, 6];
   const arr2 = [2, 5, 6, 9];
-
   const interSection = arr1.filter((ele) => arr2.includes(ele));
   console.log([...new Set(interSection)]);
   const arr3 = [1, 2, 4, 6, 6];
   const arr4 = [2, 5, 6, 9];
+
   const union = [...arr3, ...arr4];
   console.log([...new Set(union)]);
 
