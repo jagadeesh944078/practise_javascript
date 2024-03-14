@@ -10,7 +10,7 @@
     <script>
       /* Polyfill for foreach method */
       const arr = [1, 2, 3, 4];
-      arr.forEach((item) => console.log(item));
+      //   arr.forEach((item) => console.log(item));
 
       //   function printNum(el) {
       //     console.log(el);
@@ -22,7 +22,22 @@
         }
       };
 
-      arr.myForEach((el, index, arr) => console.log(arr));
+      arr.myForEach((el, index, arr) => console.log(el, "foreach"));
+
+      //   const result = arr.map((el) => el * 2);
+      //   console.log(result, "map");
+
+      Array.prototype.myMap = function (cb) {
+        let result = [];
+        for (let i = 0; i < this.length; i++) {
+          result.push(cb(this[i]));
+          console.log(result);
+        }
+        return result;
+      };
+
+      const result = arr.myMap((el) => el * 2);
+      console.log(result, "map polyfill");
     </script>
   </body>
 </html>
