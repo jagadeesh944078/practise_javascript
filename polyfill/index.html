@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Polyfill</h1>
+    <script>
+      /* Polyfill for foreach method */
+      const arr = [1, 2, 3, 4];
+      arr.forEach((item) => console.log(item));
+
+      //   function printNum(el) {
+      //     console.log(el);
+      //   }
+
+      Array.prototype.myForEach = function (cb) {
+        for (let i = 0; i < this.length; i++) {
+          cb(this[i], i, this);
+        }
+      };
+
+      arr.myForEach((el, index, arr) => console.log(arr));
+    </script>
+  </body>
+</html>
