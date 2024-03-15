@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>map polyfill</h1>
+    <script>
+      //   const result = arr.map((el) => el * 2);
+      console.log(result, "map");
+      Array.prototype.myMap = function (cb) {
+        let result = [];
+        for (let i = 0; i < this.length; i++) {
+          result.push(cb(this[i]));
+          console.log(result);
+        }
+        return result;
+      };
+      const result = arr.myMap((el) => el * 2);
+      console.log(result, "map polyfill");
+    </script>
+  </body>
+</html>

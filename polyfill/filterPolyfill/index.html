@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>filter polyfill</h1>
+    <script>
+      const arr = [1, 2, 3, 4, 5, 6];
+      //   const filteredArr = arr.filter((item) => item === 1);
+      //   console.log(filteredArr, "filter");
+
+      Array.prototype.myFilter = function (cb) {
+        let result = [];
+        for (let i = 0; i < this.length; i++) {
+          result.push(cb(this[i]));
+        }
+        return result;
+      };
+
+      const filteredArr = arr.myFilter((item) => item === 1);
+      console.log(filteredArr, "filteredArrray");
+    </script>
+  </body>
+</html>
