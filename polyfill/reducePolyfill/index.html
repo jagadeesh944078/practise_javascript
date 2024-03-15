@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Reduce Polyfill</h1>
+    <script>
+      const arr = [1, 2, 3, 5, 6, 9];
+      //   const result = arr.reduce((acc, curr) => {
+      //     return acc + curr;
+      //   }, 0);
+
+      Array.prototype.myReduce = function (cb, initialValue) {
+        let acc = initialValue;
+        for (let i = 0; i < this.length; i++) {
+          acc = acc ? cb(acc, this[i]) : this[i];
+        }
+        return acc;
+      };
+
+      const res = arr.myReduce((acc, curr) => {
+        return acc + curr;
+      }, 0);
+
+      console.log(res, "reducepolyfill");
+    </script>
+  </body>
+</html>
