@@ -9,9 +9,10 @@
     <h1>Reduce Polyfill</h1>
     <script>
       const arr = [1, 2, 3, 5, 6, 9];
-      //   const result = arr.reduce((acc, curr) => {
-      //     return acc + curr;
-      //   }, 0);
+      const result = arr.reduce((acc, curr) => {
+        return acc + curr;
+      }, 0);
+      console.log(result, "prebuiltreduce");
 
       Array.prototype.myReduce = function (cb, initialValue) {
         let acc = initialValue;
