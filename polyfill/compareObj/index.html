@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Compare two objects</h1>
+    <script>
+      const a = { a: 1, b: 2, c: { a: 3 } };
+      const b = { b: 2, a: 1, c: { a: 3 } };
+
+      const isObject = (object) => {
+        return object !== null && typeof Object === "object";
+      };
+
+      function compareEqulObj(obj1, obj2) {
+        const keyArr1 = Object.keys(obj1);
+        const keyArr2 = Object.keys(obj2);
+        if (keyArr1.length !== keyArr2.length) return false;
+        for (let key of keyArr1) {
+          const value1 = obj1[key];
+          const value2 = obj2[key];
+          const isObjects = isObject(value1) && isObject(value2);
+          if (!isObjects && value1 !== value2) {
+            return false;
+          }
+          if (isObjects && !compareEqulObj(value1, value2)) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      console.log(compareEqulObj(a, b));
+    </script>
+  </body>
+</html>
