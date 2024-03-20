@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Flat Polyfill</h1>
+    <script>
+      let arr = [1, 2, [3, [4]]];
+      Array.prototype.myFlat = function (depth) {
+        let result = [];
+        if (!Array.isArray(this)) {
+          throw new Error("not an arry");
+        }
+        this.forEach((el) => {
+          if (Array.isArray(el) && depth > 0) {
+            const bb = el.myFlat(depth - 1);
+            result.push(...el.myFlat(depth - 1));
+          } else {
+            result.push(el);
+          }
+        });
+        return result;
+      };
+      console.log(arr.myFlat(2), "falt");
+    </script>
+  </body>
+</html>
