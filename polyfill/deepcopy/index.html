@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>jagadeesh</div>
+  </body>
+  <script>
+    /* Shallow Copy Example */
+    let arr = [1, 2, 3, 4, 5];
+    let brr = [...arr];
+    brr.push(6);
+    // console.log(arr, "arr");
+    // console.log(brr, "brr");
+
+    /* Deep Copy Example */
+    let a = [1, 2, 3, [4, 5]];
+    let b = JSON.parse(JSON.stringify(a));
+    b[3].push(9);
+    // console.log(a, "a");
+    // console.log(b, "b");
+
+    let obj = {
+      a: {
+        b: {
+          c: 5,
+        },
+      },
+    };
+
+    function deepCopy(val) {
+      if (["string", "number", "boolean"].includes(typeof val)) {
+        return val;
+      } else if (Array.isArray(val)) {
+        return val.map((el) => deepCopy(el));
+      } else {
+        return Object.keys(val).reduce((acc, key) => {
+          acc[key] = deepCopy(val[key]);
+          console.log(acc[key], key);
+          return acc;
+        }, {});
+      }
+    }
+
+    let obj2 = deepCopy(obj);
+    obj2.a.b = null;
+    console.log(obj, "obj");
+    console.log(obj2, "obj2");
+
+    let c = deepCopy(a);
+    c.push(6);
+    console.log(a);
+    console.log(c, "c");
+  </script>
+</html>
