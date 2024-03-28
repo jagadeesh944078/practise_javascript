@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Convert Sneak Case</h1>
+    <script>
+      const input = "searchBoxKey";
+
+      function convertToSnakeCase(input) {
+        let output = "";
+        for (let i = 0; i < input.length; i++) {
+          if (input[i] === input[i].toUpperCase() && i > 0) {
+            output = output + "_" + input[i];
+          } else {
+            output = output + input[i];
+          }
+        }
+        return output;
+      }
+
+      const output = convertToSnakeCase(input);
+      console.log(output);
+    </script>
+  </body>
+</html>
