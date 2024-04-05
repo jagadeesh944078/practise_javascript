@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Multiple Promise Calls</h1>
+    <script>
+      async function fetchData(cb) {
+        const res = await fetch("https://fakestoreapi.com/carts?limit=2");
+        const data = await res.json();
+        console.log(data, "data");
+        let products = [];
+        data.map((productItem) => {
+          products = [...products, ...productItem.products];
+        });
+        cb(products);
+      }
+
+      fetchData(async (products) => {
+        const result = await Promise.all(
+          products.map(async (product) => {
+            const res = await fetch(
+              `https://fakestoreapi.com/products/${product.productId}`
+            );
+            const json = await res.json();
+            return json;
+          })
+        );
+        console.log(result);
+      });
+    </script>
+  </body>
+</html>
