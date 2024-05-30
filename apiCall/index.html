@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Star Wars Characters</title>
+  </head>
+  <body>
+    <h1>Star Wars Characters</h1>
+    <label for="characters">Select a character:</label>
+    <select id="characters"></select>
+    <table id="character-details">
+      <thead>
+        <tr>
+          <th>Film</th>
+          <th>Vehicle</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        const characterSelect = document.getElementById("characters");
+        const characterDetailsTable = document
+          .getElementById("character-details")
+          .getElementsByTagName("tbody")[0];
+
+        async function fetchCharacters() {
+          try {
+            const response = await fetch("https://swapi.dev/api/people/");
+            const data = await response.json();
+            displayCharacters(data.results);
+          } catch (error) {
+            console.error("Error fetching characters:", error);
+          }
+        }
+
+        async function fetchCharacterDetails(characterUrl) {
+          try {
+            const response = await fetch(characterUrl);
+            const characterData = await response.json();
+            return characterData;
+          } catch (error) {
+            console.error("Error fetching character details:", error);
+            return null;
+          }
+        }
+
+        function displayCharacters(characters) {
+          characters.forEach((character) => {
+            const option = document.createElement("option");
+            option.textContent = character.name;
+            option.value = character.url;
+            characterSelect.appendChild(option);
+          });
+        }
+
+        async function displayCharacterDetails(characterUrl) {
+          const characterData = await fetchCharacterDetails(characterUrl);
+          if (characterData) {
+            const films = characterData.films;
+            const vehicles = characterData.vehicles;
+            renderCharacterDetails(films, vehicles);
+          }
+        }
+
+        function renderCharacterDetails(films, vehicles) {
+          characterDetailsTable.innerHTML = "";
+          films.forEach((filmUrl) => {
+            fetch(filmUrl)
+              .then((response) => response.json())
+              .then((filmData) => {
+                const filmRow = document.createElement("tr");
+                filmRow.innerHTML = `<td>${filmData.title}</td><td></td>`;
+                characterDetailsTable.appendChild(filmRow);
+              })
+              .catch((error) =>
+                console.error("Error fetching film details:", error)
+              );
+          });
+
+          vehicles.forEach((vehicleUrl) => {
+            fetch(vehicleUrl)
+              .then((response) => response.json())
+              .then((vehicleData) => {
+                const vehicleRow = document.createElement("tr");
+                vehicleRow.innerHTML = `<td></td><td>${vehicleData.name}</td>`;
+                characterDetailsTable.appendChild(vehicleRow);
+              })
+              .catch((error) =>
+                console.error("Error fetching vehicle details:", error)
+              );
+          });
+        }
+
+        characterSelect.addEventListener("change", () => {
+          const selectedCharacterUrl = characterSelect.value;
+          displayCharacterDetails(selectedCharacterUrl);
+        });
+
+        // Initial fetch
+        fetchCharacters();
+      });
+    </script>
+  </body>
+</html>
