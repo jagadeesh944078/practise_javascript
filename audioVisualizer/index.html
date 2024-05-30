@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      canvas {
+        width: 100%;
+        /* height: 800px; */
+        display: block; /* it wil appear on next line not next to input */
+        position: absolute;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- lets give id because it will be easy for manupulating DO -->
+    <input type="file" accept="audio/*" id="audio" />
+    <canvas id="canvas"></canvas>
+    <!-- i have written at end javascript file becuase this file depends on dom elements -->
+    <script src="index.js"></script>
+  </body>
+</html>
